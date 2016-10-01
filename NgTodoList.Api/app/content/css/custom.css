@@ -1,0 +1,9 @@
+﻿.todo-true {
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.todo-item {
+    font-size: large;
+    line-height: 35px;
+}

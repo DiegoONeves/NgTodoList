@@ -1,0 +1,4 @@
+PM> Install-Package Microsoft.AspNet.WebApi.Owin --Padrão para escrita de api
+PM> Install-Package Microsoft.Owin.Host.SystemWeb
+PM> Install-Package Microsoft.Owin.Security.OAuth
+PM> Install-Package Microsoft.Owin.Cors --acessar o serviço de um domínio diferente

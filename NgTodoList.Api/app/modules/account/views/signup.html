@@ -1,0 +1,76 @@
+﻿<br />
+<div class="panel panel-default col-md-offset-2 col-md-6 animated flipInY">
+    <div class="panel-heading text-center">
+        <img src="content/img/logo.png" class="img-responsive" />
+    </div>
+    <div class="panel-body">
+        <form name="signup_form" novalidate ng-submit="signup($event)">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text"
+                       class="form-control input-lg"
+                       placeholder="Nome"
+                       name="name"
+                       ng-model="signupModel.name"
+                       ng-minlength=6
+                       ng-maxlength=20
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email"
+                       class="form-control input-lg"
+                       placeholder="E-mail"
+                       name="email"
+                       ng-model="signupModel.email"
+                       ng-minlength=6
+                       ng-maxlength=120
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password"
+                       class="form-control input-lg"
+                       placeholder="Senha"
+                       name="password"
+                       ng-model="signupModel.password"
+                       ng-minlength=6
+                       ng-maxlength=20
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="repassword">Confirme sua Senha</label>
+                <input type="password"
+                       class="form-control input-lg"
+                       placeholder="Confirme sua Senha"
+                       name="repassword"
+                       ng-model="signupModel.confirmPassword"
+                       ng-minlength=6
+                       ng-maxlength=20
+                       required />
+            </div>
+            <br />
+            <p class="text-center">
+                <button type="submit" ng-disabled="signup_form.$invalid || signupModel.password != signupModel.confirmPassword" class="btn btn-lg btn-primary" data-loading-text="Aguarde...">Cadastrar</button>
+                <a href="#/account/login" class="btn btn-lg btn-default">Cancelar</a>
+            </p>
+
+            <div class="alert alert-danger" ng-show="signup_form.$invalid && signup_form.$dirty || signupModel.password != signupModel.confirmPassword">
+                <ul>
+                    <li ng-show="signup_form.name.$invalid">
+                        O nome é requerido e deve conter mais de 6 caracteres.
+                    </li>
+                    <li ng-show="signup_form.email.$invalid">
+                        O E-mail é requerido e deve ser válido.
+                    </li>
+                    <li ng-show="signup_form.password.$invalid">
+                        A senha é obrigatória e deve conter pelo menos 6 caracteres.
+                    </li>
+                    <li ng-hide="signupModel.password === signupModel.confirmPassword">
+                        A senhas digitadas não coincidem.
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>

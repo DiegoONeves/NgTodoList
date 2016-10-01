@@ -1,0 +1,41 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="btn-group pull-right">
+            <a href="/app" class="btn btn-primary btn-lg"><i class="fa fa-refresh"></i></a>
+            <button class="btn btn-primary btn-lg" ng-click="sync()"><i class="fa fa-save"></i></button>
+        </div>
+        <h3>Olá, <small>{{ user.name }}</small></h3>
+        Você tem <big><strong><em>{{ remaining() }}</em></strong></big> tarefas pendentes
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4 pull-left">
+                <div class="input-group">
+                    <input type="hidden" value="{{ todo.id}}" />
+                    <input type="text" class="form-control" placeholder="Tarefa" ng-model="todo.text" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" ng-show="todo.id == 0" ng-click="save(todo)"><i class="fa fa-plus"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4 pull-right">
+                <input type="text" class="form-control" placeholder="Filtrar" ng-model="search" />
+            </div>
+        </div>
+
+        <br />
+        <ul class="list-unstyled" ng-repeat="todo in todos | filter: search">
+            <li class="todo-item">
+                <input type="hidden" value="{{ todo.id}}" />
+                <input type="checkbox" ng-model="todo.done"> -
+                <span class="todo-{{ todo.done }}">{{ todo.text }}</span>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-danger btn-sm" ng-click="delete(todo)"><i class="fa fa-remove"></i></button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

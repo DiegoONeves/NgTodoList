@@ -1,0 +1,50 @@
+﻿<br />
+<div class="panel panel-default col-md-offset-2 col-md-6 animated flipInY">
+        <div class="panel-heading text-center">
+            <img src="content/img/logo.png" class="img-responsive" />
+        </div>
+    <div class="panel-body">
+        <form name="login_form" novalidate ng-submit="authenticate()">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email"
+                       class="form-control input-lg"
+                       placeholder="E-mail"
+                       name="email"
+                       ng-model="login.email"
+                       ng-minlength=7
+                       ng-maxlength=150
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password"
+                       class="form-control input-lg"
+                       placeholder="Senha"
+                       name="password"
+                       ng-model="login.password"
+                       ng-minlength=6
+                       ng-maxlength=20
+                       required />
+            </div>
+            <br />
+            <p class="text-center">
+                <button type="submit" ng-disabled="login_form.$invalid" class="btn btn-lg btn-primary" disabled>Autenticar</button>
+                <a href="#/account/signup" class="btn btn-lg btn-default">Cadastre-se</a>
+            </p>
+            <p class="text-right">
+                <a href="#/account/forgot-password">Esqueci minha senha</a>
+            </p>
+            <div class="alert alert-danger" ng-show="login_form.$invalid && login_form.$dirty">
+                <ul>
+                    <li ng-show="login_form.email.$invalid">
+                        O E-mail é requerido e deve conter mais de 6 caracteres.
+                    </li>
+                    <li ng-show="login_form.password.$invalid">
+                        A senha é obrigatória e deve conter pelo menos 6 caracteres.
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
